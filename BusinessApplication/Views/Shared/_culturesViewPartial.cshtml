@@ -1,0 +1,16 @@
+﻿@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Builder;
+@inject IOptions<RequestLocalizationOptions> _locOptions
+
+<div class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+        Language
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+        @foreach (var cult in _locOptions.Value.SupportedCultures)
+        {
+            <li><a class="dropdown-item" asp-action="SetCulture" asp-controller="Culture" asp-route-culture="@cult.Name">@cult.EnglishName</a></li>
+        }
+    </ul>
+</div>

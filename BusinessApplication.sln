@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessApplication.Web", "BusinessApplication\BusinessApplication.Web.csproj", "{64708152-3B35-4836-AE64-428A1F8007BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessApplication.Web", "BusinessApplication\BusinessApplication.Web.csproj", "{64708152-3B35-4836-AE64-428A1F8007BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessApplication.DAL.Contracts", "BusinessApplication.DAL.Contracts\BusinessApplication.DAL.Contracts.csproj", "{C1651229-A92A-45AE-9CBB-28BA15E44EBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessApplication.DAL.Contracts", "BusinessApplication.DAL.Contracts\BusinessApplication.DAL.Contracts.csproj", "{C1651229-A92A-45AE-9CBB-28BA15E44EBE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessApplication.DAL.Implementations", "BusinessApplication.DAL.Implementations\BusinessApplication.DAL.Implementations.csproj", "{464A7B0D-7ED5-4EC4-B6C3-62D9E2EDA36F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessApplication.Domain.Contracts", "BusinessApplication.Domain.Contracts\BusinessApplication.Domain.Contracts.csproj", "{54844812-EC4A-41D0-B81E-3BFD86D0AD5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessApplication.Domain.Implementations", "BusinessApplication.Domain.Implementations\BusinessApplication.Domain.Implementations.csproj", "{9C745E17-9A37-4D76-AEBB-D8743A93BD77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{C1651229-A92A-45AE-9CBB-28BA15E44EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1651229-A92A-45AE-9CBB-28BA15E44EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1651229-A92A-45AE-9CBB-28BA15E44EBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{464A7B0D-7ED5-4EC4-B6C3-62D9E2EDA36F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{464A7B0D-7ED5-4EC4-B6C3-62D9E2EDA36F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{464A7B0D-7ED5-4EC4-B6C3-62D9E2EDA36F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{464A7B0D-7ED5-4EC4-B6C3-62D9E2EDA36F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54844812-EC4A-41D0-B81E-3BFD86D0AD5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54844812-EC4A-41D0-B81E-3BFD86D0AD5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54844812-EC4A-41D0-B81E-3BFD86D0AD5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54844812-EC4A-41D0-B81E-3BFD86D0AD5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C745E17-9A37-4D76-AEBB-D8743A93BD77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C745E17-9A37-4D76-AEBB-D8743A93BD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C745E17-9A37-4D76-AEBB-D8743A93BD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C745E17-9A37-4D76-AEBB-D8743A93BD77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

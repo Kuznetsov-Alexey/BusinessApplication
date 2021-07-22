@@ -1,0 +1,15 @@
+﻿@model BusinessApplication.Web.ViewModels.ConfirmDeleteViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<div>
+    <h4>@Localizer["ConfirmDeleteHeader"]</h4>
+    
+    <div class="p-2">
+        @Localizer["ConfirmDeleteQuestion"] @Model.TaskName?
+    </div>
+    <div class="form-group p-2">        
+        <a class="btn btn-danger" asp-action="Delete" asp-controller="TaskOrganizer" asp-route-id="@Model.Id">@Localizer["YesButton"]</a>
+        <a class="btn btn-warning" onclick="setTaskInfoView(this)" value="@Model.Id">@Localizer["CancelButton"]</a>
+    </div>
+</div>

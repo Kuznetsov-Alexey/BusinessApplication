@@ -1,0 +1,89 @@
+﻿@model BusinessApplication.Web.ViewModels.ShowTaskViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<div>
+    <div class="row">
+        <div class="form-group col-md-12">
+            <label asp-for="TaskName"></label>
+            @Model.TaskName
+        </div>        
+    </div>
+    <div class="row">
+        <div class="form-group col-md-12">
+            <label asp-for="Status"></label>
+            @Model.Status
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-12">
+            <label asp-for="Description"></label>
+            @Model.Description
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label asp-for="Executors"></label>
+            @Model.Executors
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label asp-for="LaborPlan"></label>
+            @Model.LaborPlan
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="TotalLaborPlan"></label>
+            @Model.TotalLaborPlan
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label asp-for="LaborFact"></label>
+            @Model.LaborFact
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="TotalLaborFact"></label>
+            @Model.TotalLaborFact
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label asp-for="CreationDate"></label>
+            @Model.CreationDate
+        </div>
+
+        @if (Model.Status == BusinessApplication.Domain.Contracts.Enums.TaskStatusEnum.Finished)
+        {
+            <div class="form-group col-md-6">
+                <label asp-for="FinishDate"></label>
+                @Model.FinishDate
+            </div>
+        }
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info" value="@Model.Id" onclick="setNewTaskView(this)">@Localizer["AddSubtaskButton"]</button>
+        <button class="btn btn-warning" value="@Model.Id" onclick="setTaskEditView(this)">@Localizer["EditButton"]</button>
+        <a class="btn btn-danger" onclick="setConfirmDeleteView(this)" value="@Model.Id">@Localizer["DeleteButton"]</a>
+    </div>
+
+    @if (Model.ChildTasks.Any())
+    {
+        <h5>@Localizer["SubtaskList"]</h5>
+        @foreach (var task in Model.ChildTasks)
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    <a class="nav-link align-top" href="#" value="@task.Id" onclick="setTaskInfoView(this)">@task.TaskName</a>
+                </div>
+                <div class="col-md-7">
+                    <span class="align-middle">@task.Description</span>
+                </div>
+                <div class="col-md-2">
+                    <label>@task.Status</label>
+                </div>
+            </div>
+        }
+    }
+
+</div>

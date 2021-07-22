@@ -1,0 +1,40 @@
+﻿@model BusinessApplication.Web.ViewModels.TreeListViewModel
+@using Microsoft.Extensions.Localization
+@inject IViewLocalizer Localizer
+
+
+@{
+    ViewData["Title"] = "Business App";
+}
+
+<div class="row">
+    <div class="col-md-3 border-right nav flex-column">
+        <button class="btn btn-info" onclick="setNewTaskView(this)" name="btnAddTask">@Localizer["AddTaskButton"]</button>
+        <ul>
+            @foreach (var node in Model.Tasks.Where(t => t.ParentId == null))
+            {
+                var listModel = new BusinessApplication.Web.ViewModels.TreeListViewModel { Tasks = Model.Tasks, ParentId = node.Id };
+            <li>
+                @if (Model.Tasks.Any(t => t.ParentId == node.Id))
+                {
+                    <div>
+                        <a class="nodePointer" onclick="expand(this)"></a>
+                        <a href="#" value="@node.Id" onclick="setTaskInfoView(this)">@node.TaskName</a>
+                    </div>
+                    @await Html.PartialAsync("_TreeListViewPartial", listModel)
+                }
+                else
+                {
+                    <div>
+                        <a class="noChildNodes" href="#" value="@node.Id" onclick="setTaskInfoView(this)">@node.TaskName</a>
+                    </div>
+                }
+            </li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-9 contentArea">
+        @Localizer["Message"]
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model BusinessApplication.Web.ViewModels.TreeListViewModel
+
+
+@if (Model.Tasks.Where(x => x.ParentId == Model.ParentId).Any())
+{
+<ul style="display:none">
+    @foreach (var node in Model.Tasks)
+    {
+        if (node.ParentId == Model.ParentId)
+        {
+            var listModel = new BusinessApplication.Web.ViewModels.TreeListViewModel { Tasks = Model.Tasks, ParentId = node.Id };
+            <li>
+                @if (Model.Tasks.Any(t => t.ParentId == node.Id))
+                {
+                    <div>
+                        <a class="nodePointer" onclick="expand(this)"></a>
+                        <a href="#" value="@node.Id" onclick="setTaskInfoView(this)">@node.TaskName</a>
+                    </div>
+                    @await Html.PartialAsync("_TreeListViewPartial", listModel)
+                }
+                else
+                {
+                    <div>
+                        <a class="noChildNodes" href="#" value="@node.Id" onclick="setTaskInfoView(this)">@node.TaskName</a>
+                    </div>
+                }
+            </li>
+        }
+     }
+</ul>
+}
